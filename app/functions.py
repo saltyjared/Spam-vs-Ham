@@ -1,7 +1,5 @@
 import numpy as np
 import pandas as pd
-import re
-from collections import Counter
 
 def df_to_lower(df):
     """
@@ -30,21 +28,6 @@ def words_in_texts(words, texts):
     indicator_array = np.array([texts.str.contains(word) for word in words]).T.astype('int')
 
     return indicator_array
-
-def most_occurring_word(email):
-    """
-    Args:
-        email (Series): Series of email body text data
-    
-    Returns:
-        most_common (string): Most occurring word in an email body
-    """
-    words = re.findall(r'\w+', email.lower())
-    word_counter = Counter(words)
-
-    most_common = max(word_counter, key=word_counter.get)
-
-    return most_common
 
 def transformations(df):
     df['html_tags'] = df['email'].str.count('<.*?\>')
