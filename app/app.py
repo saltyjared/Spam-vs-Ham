@@ -18,7 +18,8 @@ def home():
         # Convert form data to a singular row in pandas
         data = {'subject':subject, 'email':email}
         df = pd.DataFrame(data)
-        print(df)
+        
+        
 
     return render_template('index.html', x='placeholder')
 
