@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spam vs. Ham Classifier</title>
+</head>
+<body>
+    <div id="navbar">
+        <h1>Spam vs. Ham Classifier</h1>
+    </div>
+
+    <div id="input">
+        <h2>Paste subject line here:</h2>
+        <textarea id="input-subject" rows="2" cols="80"></textarea>
+        <h2>Paste email here:</h2>
+        <textarea id="input-email" rows="5" cols="80"></textarea>
+    </div>
+
+    <div id="result">
+        <h2>This email is most likely {{x}}</h2>
+        <h3>Number of HTML tags: {{x}}</h3>
+        <h3>Length of subject: {{x}} words</h3>
+        <h3>Length of body: {{x}} words, {{x}} characters</h3>
+        <h3>Number of exclamation marks: {{x}}</h3>
+    </div>
+</body>
+</html>
