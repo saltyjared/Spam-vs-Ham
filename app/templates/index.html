@@ -11,18 +11,23 @@
     </div>
 
     <div id="input">
-        <h2>Paste subject line here:</h2>
-        <textarea id="input-subject" rows="2" cols="80"></textarea>
-        <h2>Paste email here:</h2>
-        <textarea id="input-email" rows="5" cols="80"></textarea>
+        <form action="/" method="POST">
+            <h2>Paste subject line here:</h2>
+            <textarea id="input-subject" name="input-subject" rows="2" cols="80"></textarea>
+            <h2>Paste email here:</h2>
+            <textarea id="input-email" name="input-email" rows="5" cols="80"></textarea>
+            <input type="submit" value="Submit">
+        </form>
     </div>
 
     <div id="result">
-        <h2>This email is most likely {{x}}</h2>
-        <h3>Number of HTML tags: {{x}}</h3>
-        <h3>Length of subject: {{x}} words</h3>
-        <h3>Length of body: {{x}} words, {{x}} characters</h3>
-        <h3>Number of exclamation marks: {{x}}</h3>
+        {% if spam_or_ham != ' ' %}
+        <h2>This email is most likely {{ spam_or_ham }}</h2>
+        <h3>Number of HTML tags: {{ html_tags }}</h3>
+        <h3>Length of subject: {{ subject_len }} words</h3>
+        <h3>Length of body: {{ body_len }} words, {{body_char}} characters</h3>
+        <h3>Number of exclamation marks: {{ excl_count }}</h3>
+        {% endif %}
     </div>
 </body>
 </html>
