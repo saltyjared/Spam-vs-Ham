@@ -31,21 +31,28 @@ def home():
         prediction = model.predict(X)[0]
         pred_to_result = {0:'ham', 1:'spam'}
         return render_template('index.html', 
-                               spam_or_ham = pred_to_result[prediction], 
-                               html_tags = X['html_tags'].iloc[0],
-                               subject_len = df['subj_length'].iloc[0],
-                               body_len = X['body_length'].iloc[0],
-                               body_char = X['body_characters'].iloc[0],
-                               excl_count = X['exclamations'].iloc[0])
-        
+                               spam_or_ham=pred_to_result[prediction], 
+                               html_tags=X['html_tags'].iloc[0],
+                               subject_len=df['subj_length'].iloc[0],
+                               body_len=X['body_length'].iloc[0],
+                               body_char=X['body_characters'].iloc[0],
+                               excl_count=X['exclamations'].iloc[0],
+                               subject=subject,
+                               email=email)
 
     return render_template('index.html', 
-                           spam_or_ham = ' ', 
-                           html_tags = ' ',
-                           subject_len = ' ',
-                           body_len = ' ',
-                           body_char = ' ',
-                           excl_count = ' ')
+                           spam_or_ham=' ', 
+                           html_tags=' ',
+                           subject_len=' ',
+                           body_len=' ',
+                           body_char=' ',
+                           excl_count=' ',
+                           subject='',
+                           email='')
+
+@app.route('/analysis')
+def analysis():
+    return render_template('analysis.html')
 
 if __name__ == '__main__':
-    app.run(debug=False)
+    app.run(debug=True)
